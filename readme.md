@@ -26,4 +26,4 @@
 
 ### /keys/server.key.pem
 
-    服务器秘钥文件，如果启用https，则必须挂载
+    服务器密钥文件，如果启用https，则必须挂载
