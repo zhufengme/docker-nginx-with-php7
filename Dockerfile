@@ -32,6 +32,13 @@ RUN mkdir /logs ; mkdir /www ; mkdir /www/web && \
     sed -i 's/display_startup_errors/#display_startup_errors/g' /etc/php/7.0/fpm/php.ini && \
     sed -i 's/display_startup_errors/#display_startup_errors/g' /etc/php/7.0/cli/php.ini && \
 
+    apt-get install -y make php7.0-dev php-pear libyaml-dev && \
+    pecl install yaml-2.0.0 && \
+    echo "extension=yaml.so" > /etc/php/7.0/cli/conf.d/yaml.ini && \
+    echo "extension=yaml.so" > /etc/php/7.0/fpm/conf.d/yaml.ini && \
+    apt-get remove -y php7.0-dev && \
+    apt-get autoremove -y && \
+
     rm -rf /var/lib/apt/lists/*
 
 COPY supervisord.conf /etc/supervisor/supervisord.conf
