@@ -13,7 +13,7 @@ RUN mkdir /logs ; mkdir /www ; mkdir /www/web && \
     echo 'deb-src http://packages.dotdeb.org jessie all' >> /etc/apt/sources.list && \
     
     apt-get update && \
-    apt-get install -y php7.0-fpm php7.0-curl php7.0-mcrypt php7.0-gd php7.0-redis && \
+    apt-get install -y php7.0-mysql php7.0-fpm php7.0-curl php7.0-mcrypt php7.0-gd php7.0-redis && \
     chown www-data:www-data /logs  && \
 
     sed -i 's/\/var\/log\/php7.0-fpm.log/\/logs\/fpm.log/g' /etc/php/7.0/fpm/php-fpm.conf && \
