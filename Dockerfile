@@ -46,6 +46,10 @@ COPY nginx /templates/nginx/
 COPY php /templates/php/
 COPY startup.sh /
 
+COPY nginx/devlink.ca.crt /usr/local/share/ca-certificates/devlink.ca.crt
+update-ca-certificates
+
+
 RUN chmod +x /startup.sh
 
 EXPOSE 80 
